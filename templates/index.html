@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pet Adoption and Care Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f4f8f5;
+            color: #26352b;
+        }
+        h1 { color: #28734b; }
+        .pet, form {
+            background: white;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 8px;
+        }
+        form { max-width: 400px; }
+        input, select, button {
+            padding: 10px;
+            margin: 8px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            background: #28734b;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pet Adoption and Care Management System</h1>
+    <p>Find a loving companion and learn how to care for your pet.</p>
+
+    <h2>Pets Available for Adoption</h2>
+    {% for pet in pets %}
+        <div class="pet">
+            <h3>{{ pet.name }}</h3>
+            <p>Animal: {{ pet.type }}</p>
+            <p>Age: {{ pet.age }}</p>
+        </div>
+    {% endfor %}
+
+    <h2>Adopter Registration</h2>
+    <form action="/register" method="POST">
+        <label for="name">Full Name</label>
+        <input id="name" type="text" name="name" required>
+
+        <label for="email">Email Address</label>
+        <input id="email" type="email" name="email" required>
+
+        <label for="pet">Select a Pet</label>
+        <select id="pet" name="pet" required>
+            <option value="">Choose a pet</option>
+            <option value="Buddy">Buddy - Dog</option>
+            <option value="Milo">Milo - Cat</option>
+            <option value="Coco">Coco - Rabbit</option>
+        </select>
+
+        <button type="submit">Submit Adoption Request</button>
+    </form>
+
+    <h2>Pet Care Guidelines</h2>
+    <ul>
+        <li>Provide nutritious food and clean drinking water.</li>
+        <li>Maintain proper hygiene and grooming.</li>
+        <li>Ensure regular exercise and vaccinations.</li>
+        <li>Arrange regular veterinary checkups.</li>
+        <li>Provide a safe and comfortable environment.</li>
+    </ul>
+</body>
+</html>
